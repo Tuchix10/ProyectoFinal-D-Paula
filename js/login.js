@@ -40,48 +40,51 @@ const backRegister = document.querySelector(".contenedor-back-registro");
 function anchoPagina() {
     if (window.innerWidth > 916) {
         backRegister.style.display = "block";
-        backRegister.style.display = "block";
+        backLogin.style.display = "block";
     } else {
         backRegister.style.display = "block";
         backRegister.style.opacity = "1";
         backLogin.style.display = "none";
         formLogin.style.display = "block";
+        contenedorForms.style.left = "0px";
         formRegister.style.display = "none";   
     }
 }
 
-function iniciarSesion() {
-    if (window.innerWidth > 916) {
-        formLogin.style.display = "block";
-        contenedorForms.style.left = "10px";
-        formRegister.style.display = "none";
-        backRegister.style.opacity = "1";
-        backLogin.style.opacity = "0";
-    } else {
-        formLogin.style.display = "block";
-        contenedorForms.style.left = "0px";
-        formRegister.style.display = "none";
-        backRegister.style.display = "block";
-        backLogin.style.display = "none";
-    }
-}
+anchoPagina();
 
-function registro() {
-    if (window.innerWidth > 916) {
-        formRegister.style.display = "block";
-        contenedorForms.style.left = "410px";
-        formLogin.style.display = "none";
-        backRegister.style.opacity = "0";
-        backLogin.style.opacity = "1";
-    } else {
-        formRegister.style.display = "block";
-        contenedorForms.style.left = "0px";
-        formLogin.style.display = "none";
-        backRegister.style.display = "none";
-        backLogin.style.display = "block";
-        backLogin.style.opacity = "1";
+    function iniciarSesion() {
+        if (window.innerWidth > 916) {
+            formLogin.style.display = "block";
+            contenedorForms.style.left = "10px";
+            formRegister.style.display = "none";
+            backRegister.style.opacity = "1";
+            backLogin.style.opacity = "0";
+        } else {
+            formLogin.style.display = "block";
+            contenedorForms.style.left = "0px";
+            formRegister.style.display = "none";
+            backRegister.style.display = "block";
+            backLogin.style.display = "none";
+        }
     }
-}
+
+    function registro() {
+        if (window.innerWidth > 916) {
+            formRegister.style.display = "block";
+            contenedorForms.style.left = "410px";
+            formLogin.style.display = "none";
+            backRegister.style.opacity = "0";
+            backLogin.style.opacity = "1";
+        } else {
+            formRegister.style.display = "block";
+            contenedorForms.style.left = "0px";
+            formLogin.style.display = "none";
+            backRegister.style.display = "none";
+            backLogin.style.display = "block";
+            backLogin.style.opacity = "1";
+        }
+    }
 
 // Registro
 
