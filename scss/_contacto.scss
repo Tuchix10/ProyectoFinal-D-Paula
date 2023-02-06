@@ -1,0 +1,163 @@
+/*/ GENERAL /*/
+.tarjetacontacto {
+    h1 {
+        margin-top: 60px;
+        text-align: center;
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+    }
+}
+.contact {
+    background-image: url(../img/Bg.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    image-rendering: optimizeQuality;
+    margin: auto;
+    margin-top: 6vh;
+    margin-bottom: 181px;
+    width: fit-content;
+    height: 500px;
+    border-radius: 30px;
+    box-shadow: 7px 17px 37px #262626;
+    display: grid;
+    grid-template-areas:
+    "titulos titulos titulos"
+    "form social extra";
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    h2 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        color: white;
+        margin-top: 3vh;
+        text-align: center;
+    }
+}
+/*/ REDES SOCIALES /*/
+.social {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    column-gap: 15px;
+    padding-left: 125px;
+    img {
+        width: 4rem;
+        height: 4rem;
+        margin-top: 33px;
+    }
+}
+.social-txt {
+    margin-top: 50px;
+    a {
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        text-decoration: none;
+        color: white;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+}
+/*/ MEDIOS EXTRA /*/
+.extra {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    padding: 0px 50px;
+    column-gap: 15px;
+    img {
+        width: 4rem;
+        height: 4rem;
+        margin-top: 30px;
+    }
+}
+.extra-txt{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color: white;
+    margin-top: 46px;
+}
+/*/ FORMULARIO /*/
+.form {
+    @extend .flexcolumnas;
+    margin-top: 20px;
+    margin-left: 50px;
+    input {
+        margin-top: 10px;
+        width: 200px;
+        padding: 7px 8px;
+        border-radius: 10px;
+        border: none;
+    }
+    textarea {
+        border-radius: 10px;
+        margin-top: 10px;
+        border: none;
+        padding: 10px;
+    }
+}
+.send {
+    background-color: #262626;
+    color: #7EA3CC;
+    border: 1px solid #262626;
+}
+.send:hover {
+    background-color: #434343;
+    text-decoration: underline;
+}
+@media screen and (max-width: $PantallaXL) {
+    .contact {
+        margin: auto;
+        margin-top: 4vh;
+        margin-bottom: 3vh;
+        height: 100%;
+        width: 95vw;
+        border-radius: 30px;
+        box-shadow: 7px 17px 37px #262626;
+        display: grid;
+        grid-template-areas:
+        "titulos"
+        "form"
+        "titulos2"
+        "social"
+        "titulos3"
+        "extra";
+        grid-template-rows: auto auto auto auto auto auto;
+        grid-template-columns: auto;
+    }
+    .form {
+        margin-top: 0px;
+        width: 60vw;
+    }
+    .titulos1 {
+        grid-area: titulos;
+        margin-top: 15px;
+    }
+    .titulos2 {
+        grid-area: titulos2;
+        margin-top: 15px;
+    }
+    .titulos3 {
+        grid-area: titulos3;
+        margin-top: 15px;
+    }
+    .social {
+        padding-left: 45px;
+        img {
+            margin-top: 25px;
+        }
+    }
+    .social-txt {
+        margin-top: 47px;
+    }
+    .extra {
+        margin-bottom: 3vh;
+        padding-left: 45px;
+    }
+    .send {
+    margin: auto;
+    }
+}

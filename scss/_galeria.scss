@@ -1,0 +1,16 @@
+.carousel.slide {
+    width: 65%;
+    margin: auto;
+}
+.carousel-inner {
+    border-radius: $borde;
+    margin-top: 25px;
+}
+@media screen and (min-width: $Pantallachica) and (max-width: $Pantallagrande) {
+    .carousel.slide {
+        width: 90%;
+        height: 100%;
+        margin-bottom: 113px;
+        margin-top: 93px;
+    }
+}

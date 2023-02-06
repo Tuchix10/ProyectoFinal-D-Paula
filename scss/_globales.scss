@@ -1,0 +1,27 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #083e6a, #1d9fd0);
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+a {
+    text-decoration: none;
+    border: none;
+}
+footer {
+    background-color: #084476;
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: row;
+}
+.colornav {
+    background-color: white;
+}

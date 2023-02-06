@@ -1,0 +1,339 @@
+/*/ ENTRADA /*/
+.titulo {
+    display: none;
+    img {
+        display: none;
+    }
+}
+.titulo-inicio {
+    position: relative;   
+    display: flex;
+    img {
+        width: 100vw;
+    }
+    h1 {
+        top: 9.5vw;
+        width: 35vw;
+        @extend .titulos-general;
+        font-weight: bold;
+        left: 8vw;
+    }
+    h2 {
+        top: 7vw;
+        @extend .titulos-general;
+        font-size: $fuentesubt;
+        left: 8vw;
+    }
+    h3 {
+        @extend .titulos-general;
+        width: 30vw;
+        font-size: $fuentenormalgrande;
+        text-align: left;
+        top: 14.5vw;
+        margin-top: 1vw;
+        left: 8vw;
+    }
+    button {
+        @extend .botones-general;
+        position: absolute;
+        top: 23vw;
+        right: 72vw;
+    }
+    a {
+        color: white;
+        font-size: $fuentenormalgrande; 
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+}
+@media screen and (max-width: $Pantallagrande) {
+    .titulo-inicio {
+        h1 {
+            width: 43vw;
+            font-size: 3vw;
+            left: 2vw;
+        }
+        h2 {
+            font-size: 2.5vw;
+            left: 2vw;
+        }
+        h3 {
+            width: 52vw;
+            font-size: 3vw;
+            margin-top: 2vw;
+            left: 2vw;
+        }
+        button {
+            top: 31vw;
+            right: 50vw;
+        }
+        a {
+            font-size: medium;
+        }
+    }
+}
+@media screen and (min-width: $Pantallachica) and (max-width: $Pantallamediana) {
+    .titulo-inicio {
+        img {
+            width: 100%;
+        }
+        h1 {
+            margin-top: 1vw;
+            width: 56vw;
+            font-size: 4vw;
+        }
+        h2 {
+            font-size: 3vw;
+        }
+        h3 {
+            width: 58vw;
+            font-size: 3.5vw;
+            margin-top: 6vw
+        }
+        button {
+            top: 38vw;
+            right: 50vw;
+        }
+        a {
+            font-size: medium;
+        }
+    }
+}
+/*/ OBRAS SOCIALES /*/
+.tituloasociados {
+    @extend .titulos-general-about;
+    color: rgb(192, 233, 255);
+    font-size: 30px;
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+.asociados {
+    @extend .flexrows;
+    justify-content: space-evenly;
+    align-items:center;
+    margin-bottom: 3vh;
+}
+.contenedorimgs {
+    max-width: 15vw;
+    min-width: 105px;
+}
+.avalian {
+    width: 15vw;
+    height: 14vh;
+}
+.osde {
+    width: 15vw;
+    height: 25vh;
+}
+.sancor {
+    width: 15vw;
+    height: 15vh;
+}
+.asociados-text {
+    text-align: center;
+    font-size: 25px;
+}
+@media screen and (max-width: $Pantallamediana) {
+    .tituloasociados {
+        margin-bottom: 0px;
+    }
+    .asociados {
+        display: grid;
+        grid-template-columns: auto auto;
+        .contenedorimgs {
+            width: 100%;
+        }
+        img {
+            width: 100%;
+        }
+        .osde {
+            height: 17vh;
+        }
+        .avalian {
+            height: 8vh;
+        }
+        .apross {
+            height: 5vh;
+            margin-top: 65px;
+        }
+    }
+}
+@media screen and (min-width: $Pantallagrande) and (max-width: $PantallaXL) {
+    .avalian {
+        margin-top: 5vh;
+        width: 85%;
+        height: 18vh;
+    }
+    .osde {
+        width: 85%;
+        height: 30vh;
+    }
+    .sancor {
+        width: 85%;
+        height: 25vh;
+    }
+}
+/*/ 4 CARTAS /*/
+.cartasvarias {
+    box-shadow: 7px 13px 37px #1a3d69;
+    background-color: white;
+    @extend .flexrows;
+    justify-content: space-around;
+    height: 45vh;
+    align-items: center;
+    border-radius: $borde;
+    width: 95vw;
+    margin: auto;
+    margin-bottom: 3vh;
+    .ventana1 {
+        animation-delay: 0.8s;
+    }
+    .ventana2 {
+        animation-delay: 0.6s;
+    }
+    .ventana3 {
+        animation-delay: 0.4s;
+    }
+    .ventana4 {
+        animation-delay: 0.2s;
+    }
+}
+.card.varias {
+    height: 40vh;
+    width: 20vw;
+    img {
+        height: 25vh;
+        width: 20vw;
+    }
+}
+.animate__animated.animate__backInLeft {
+    animation-duration: 2s;
+}
+@media screen and (min-width: $Pantallamediana) and (max-width: $PantallaXL) {
+    .cartasvarias {
+        height: 100%;
+        border-radius: $borde;
+        width: 95vw;
+    }
+    .card.varias {
+        height: 74vh;
+        margin-bottom: 2vh;
+        margin-top: 2vh;
+        img {
+            height: 25vh;
+            width: 35vw;
+            margin: auto;
+        }
+    }
+}
+@media screen and (max-width: $Pantallamediana) {
+    .cartasvarias {
+        @include flexcolumnas;
+        height: 100%;
+        justify-content: space-around;
+        border-radius: $borde;
+        width: 80vw;
+        margin: auto;
+        margin-bottom: 3vh;
+    }
+    .card.varias {
+        height: 100%;
+        width: 65vw;
+        margin-bottom: 2vh;
+        margin-top: 2vh;
+        img {
+            margin: auto;
+            width: 100%;
+        }
+    }
+}
+/*/ PEQUEÑA BARRA DE NAV /*/
+.nav {
+    text-decoration: none;
+    background-color: #262626;
+    width: 24.67vw;
+    justify-content: space-around;
+    margin: auto;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    border-radius: $borde;
+    a {
+        color: white;
+        border-radius: $borde;
+    }
+    a:hover {
+        color: #7EA3CC;
+        text-decoration: underline;
+        background-color: #434343;
+    }
+}
+@media screen and (min-width: $Pantallachica) and (max-width: $PantallaXL) {
+    .nav {
+        width: 90%;
+        justify-content: space-evenly;
+    }
+}
+/*/ CARTA DE LA PAREJA /*/
+.card-title {
+    text-align: center;
+}
+.card.mb-3 {
+    box-shadow: 7px 13px 37px #132e4e;
+    margin: auto;
+    width: 85vw;
+    height: 39%;
+    border-radius: 25px;
+    img {
+        padding: 1vh;
+        width: 100%;
+        height: 33vh;
+        border-radius: 25px;
+        margin-top: 1vh;
+        margin-left: 1vw;
+    }
+}
+.card-body p {
+    text-align: center;
+}
+.card-body.inicio {
+    button {
+        @extend .botones-general;
+    }
+    a {
+        color: white;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    p {
+        text-align: left;
+    }
+}
+.navbar-nav {
+    a {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #262626;
+        font-size: 20px;
+        margin-left: 2vw;
+        margin-right: 2vw;
+    }
+    a:hover {
+        color: #7EA3CC;
+    }
+}
+.divboton {
+    @extend .flexrows;
+    justify-content: center;
+}
+@media screen and (min-width: $Pantallamediana) and (max-width: $PantallaXL) {
+    .card.mb-3 {
+        img {
+            height: 65%;
+            margin-top: 12vh;
+        }
+    }
+}
+
+

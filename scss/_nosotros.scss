@@ -1,0 +1,333 @@
+/*/ ENTRADA /*/
+.banner-about {
+    background-image: url(../img/banner2.jpeg);
+    background-size: cover;
+    background-position: left;
+    background-repeat: no-repeat;
+    image-rendering: optimizeQuality;
+    opacity: 0.8;
+    display: grid;
+    grid-template-areas: 
+    "tituloabout textoabout1"
+    "none textoabout2";
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+        h3 {
+        text-align: left;
+        font-size: 19px;
+    }
+}
+.titulo-about {
+    @extend .titulos-about;
+    grid-area: tituloabout;
+    font-weight: bold;
+    margin-top: 10vw;
+    margin-left: 3vw;
+}
+.texto1-about {
+    @extend .titulos-about;
+    grid-area: textoabout1;
+    margin-top: 4vw;
+}
+.texto2-about {
+    font-size: $fuentenormalgrande;
+    @extend .titulos-about;
+    grid-area: textoabout2;
+    margin-bottom: 4vw;
+}
+@media screen and (max-width: $Pantallagrande) {
+    .titulo-about {
+        margin-left: 0vw;
+    }
+    .banner-about {
+        @include flexcolumnas;
+        justify-content: space-evenly;
+        align-items: center;
+        h1 {
+            margin-left: 25px;
+        }
+        h3 {
+            margin: auto 25px;
+        }
+    }
+    .tituloCEO {
+        font-size: 25px;
+    }
+    .texto2-about {
+        margin-top: 35px;
+    }
+}
+/*/ CEO /*/
+.tituloCEO {
+    margin-top: 8vw;
+    margin-left: 5vw;
+    @extend .titulos-general-about;
+    width: 60vw;
+}
+.CEO {
+    @extend .flexrows;
+}
+.textosCEO {
+    @extend .flexcolumnas;
+    font-size: $fuentesubt;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(0, 0, 0, .8);
+    margin-top: 2vw;
+    h3 {
+        text-align: start;
+        margin-left: 5vw;
+        margin-bottom: 5vw;
+        color: rgb(192, 233, 255, .8)
+    }
+}
+.imgCEO {
+    width: 100%;
+    height: 100%;
+    margin-right: 3vw;
+    margin-left: 5vw;
+    img {
+        border-radius: $borde;
+    }
+}
+@media screen and (max-width: $Pantallagrande) {
+    .tituloCEO {
+        font-size: 28px;
+        margin-bottom: 25px;
+        margin-left: 25px;
+    }
+    .CEO {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto auto;
+    }
+    .textosCEO {
+        margin-top: 0px;
+        h3 {
+            margin: auto 25px 25px;
+            font-size: 19px;
+        }
+    }
+    .imgCEO {
+        width: 80%;
+        height: auto;
+        margin: auto;
+    }  
+}
+@media screen and (min-width: $Pantallagrande) and (max-width: $PantallaXL) {
+    .CEO {
+        display: grid;
+        grid-template-areas: 
+        "CEOtexto CEOimg"
+        "CEOtexto CEOimg"
+        "CEOtexto CEOimg";
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto auto;
+    }
+    .textosCEO {
+        grid-area: CEOtexto;
+    }
+    .imgCEO {
+        grid-area: CEOimg;
+        margin-left: 0px;
+        img {
+            margin-top: 20vw;
+        }
+    }
+    .imgestadisticas {
+        img {
+            margin-top: 10vw;
+        }
+    }
+}
+/*/ ESTADISTICAS /*/
+.tituloestadisticas {
+    margin-top: 8vw;
+    margin-left: 42vw;
+    @extend .titulos-general-about;
+}
+.estadisticas {
+    display: grid;
+    grid-template-areas:
+    "imagenest texto1 texto2"
+    "imagenest texto3 texto4";
+    grid-template-columns: 0.5fr 0.5fr 0.55fr;
+    grid-template-rows:auto auto;
+    margin-top: 35px;
+    h2 {
+        margin-top: 40px;
+        margin-left: 35px;
+        @extend .titulos-general-about;
+    }
+    h3 {
+        margin-left: 35px;
+        color: rgb(192, 233, 255)
+    }
+}
+.estadisticas1 {
+    grid-area: texto1;
+}
+.estadisticas2 {
+    grid-area: texto2;
+}
+.estadisticas3 {
+    grid-area: texto3;
+}
+.estadisticas4 {
+    grid-area: texto4;
+}
+.imgestadisticas {
+    width: 37.2vw;
+    grid-area: imagenest;
+    margin-left: 3vw;
+}
+@media screen and (max-width: $Pantallagrande) {
+    .tituloestadisticas {
+        margin-top: 75px;
+        margin-left: 35px;
+        font-size: 28px;
+    }
+    .estadisticas {
+        gap: 35px;
+        margin-top: 0px;
+        @include flexcolumnas;
+        h2 {
+            margin-top: 35px;
+            font-size: 28px;
+        }
+        h3 {
+            margin-right: 25px;
+        }
+    }
+    .imgestadisticas {
+        width: 80%;
+        height: 80%;
+        margin: auto;
+        img {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+    }
+}
+/*/ TESTIMONIOS /*/
+.titulotestimonio {
+    h2 {
+        margin-left: 5vw;
+    }
+    h3 {
+        color: rgb(25, 25, 25);
+        margin-left: 5.2vw;
+        font-size: 25px;
+        margin-bottom: 5vw;
+    }
+}
+.testimonios {
+    display: grid;
+    grid-template-areas: 
+    "carta1 carta2 carta3"
+    "carta4 carta5 carta6";
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+    margin-right: 3vw;
+    gap: 125px;
+    p {
+        font-size: $fuentenormal;
+        opacity: 0.8;
+        margin-left: 5vw;
+        color: rgb(213, 241, 255);
+    }
+    h2 {
+        font-size: 25px;
+        margin-left: 6vw;
+    }
+}
+.testimonio1 {
+    grid-area: carta1;
+}
+.testimonio2 {
+    grid-area: carta2;
+}
+.testimonio3 {
+    grid-area: carta3;
+}
+.testimonio4 {
+    grid-area: carta4;
+}
+.testimonio5 {
+    grid-area: carta5;
+}
+.testimonio6 {
+    grid-area: carta6;
+}
+/*/ GRILLA DE PROFESIONALES /*/
+.tituloprofesionales {
+    h2 {
+        @extend .titulos-general-about;
+        text-align: center;
+        margin-top: 100px;
+        margin-bottom: 75px;
+    }
+}
+.cardprofesionales {
+    @extend .flexrows;
+    justify-content: space-evenly;
+}
+.card.mid {
+    box-shadow: 7px 13px 37px #1a3d69;
+    width: 25vw;
+    img {
+        padding: 10px;
+        border-radius: $borde;
+    }
+}
+.card.end {
+    width: 30vw;
+}
+@media screen and (min-width: $Pantallamediana) and (max-width: $PantallaXL) {
+    .testimonios {
+        display: grid;
+        grid-template-areas: 
+        "carta1 carta2"
+        "carta3 carta4"
+        "carta5 carta6";
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto auto;
+        gap: 120px;
+        p {
+            font-size: 20px;
+        }
+    }
+}
+/*/ CARTA INGRESO /*/
+.backfinal {
+    margin: auto;
+    background-color: #c6e4fc;
+    width: 70vw;
+    margin-top: 25px;
+    box-shadow: 7px 13px 37px #1a3d69;
+    border-radius: $borde;
+    padding: 15px;
+}
+@media screen and (min-width: $Pantallachica) and (max-width: $Pantallamediana) {
+    .cardprofesionales {
+        @include flexcolumnas;
+        gap: 25px;
+    }
+    .card.mid {
+        width: 95%;
+        margin: auto;
+    }
+    .testimonios {
+        @include flexcolumnas;
+        gap: 130px;
+        margin-left: 50px;
+            p {
+                font-size: 20px;
+            }
+            h2 {
+                font-size: 22px;
+            }
+        }
+    .backfinal {
+        width: 95vw;
+    }
+}

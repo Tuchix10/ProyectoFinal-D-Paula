@@ -1,0 +1,66 @@
+/*/ BASICOS /*/
+$bgbody: #094b84;
+$fuentegrande: 2.5vw;
+$fuentesubt: 2vw;
+$fuentenormalgrande: 1.5vw;
+$fuentenormal: 1.2vw;
+$fuentechica: 1vw;
+$fuente: Arial, Helvetica, sans-serif; 
+
+/*/ PANTALLA /*/
+
+$Pantallachica: 320px;
+$Pantallamediana: 768px;
+$Pantallagrande: 1070px;
+$PantallaXL: 1200px;
+
+/*/ MISC /*/
+
+$bgimg: url(../img/Bg.jpg);
+$borde: 30px;
+
+/*/ EXTENDS /*/
+
+.titulos-general {
+    position: absolute;
+    font-size: $fuentegrande;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(0, 0, 0, .8);
+}
+.titulos-general-about {
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(0, 0, 0, .8);
+    font-weight: bold;
+}
+.botones-general {
+    text-decoration: none;
+    padding: 10px 15px 10px 15px;
+    border: none;
+    border-radius: $borde;
+}
+.titulos-about {
+    display: grid;
+    font-size: $fuentesubt;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(0, 0, 0, .8);
+}
+.flexcolumnas {
+    display: flex;
+    flex-direction: column;
+}
+.flexrows {
+    display: flex;
+    flex-direction: row;
+}
+
+/*/ MIXINS /*/
+
+@mixin flexcolumnas {
+    display: flex;
+    flex-direction: column;
+}
+@mixin flexrows {
+    display: flex;
+    flex-direction: row;
+}

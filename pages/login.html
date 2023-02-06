@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="psicologia, atencion, psiquiatria, tratamiento, integral, salud, mental, saludmental, medicina, medico, medicos, medica, historia, profesionales">
+    <meta name="description" content="Todo lo que queres saber sobre Logos esta en esta página">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="shortcut icon" href="../img/logo sin fondo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <title>Logos | Nosotros</title>
+</head>
+<body class="body-login">
+    <header>
+        <nav class="navbar colornav navbar-dark navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../index.html"><img src="../img/logo-horizontal.png" alt="logo"></a>
+                <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon bg-dark"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" aria-current="page" href="../index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">Ingresar</a></li>
+                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">Nosotros</a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a class="nav-link" href="nosotros.html">Conocenos</a></li>
+                                <li class="nav-item"><a class="nav-link" href="profesionales.html">Nuestros profesionales</a></li>
+                                <li class="nav-item"><a class="nav-link" href="galeria.html">Galeria</a></li>
+                                <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="principal-login">
+        <div class="contenedor-general">
+            <div class="contenedor-back">
+                <div class="contenedor-back-login">
+                    <h3>¿Ya tienes una cuenta?</h3>
+                    <p>Inicia sesión para acceder a la plataforma</p>
+                    <button id="goLog">Iniciar Sesión</button>
+                </div>
+                <div class="contenedor-back-registro">
+                    <h3>¿Aún no tienes una cuenta?</h3>
+                    <p>Regístrate para acceder a la plataforma</p>
+                    <button id="goReg">Regístrarse</button>
+                </div>
+            </div>
+            <div class="contenedor-forms">
+                <form class="form-login">
+                    <h2>Iniciar sesión</h2>
+                    <input type="text" id="dniLog" placeholder="DNI">
+                    <input type="password" id="passLog" placeholder="Contraseña">
+                    <button id="sendLog">Entrar</button>
+                    <p class="errores" id="usuarioNoEncontrado">Usuario no encontrado</p>
+                </form>
+                <form class="form-registro">
+                    <h2>Regístrarse</h2>
+                    <input type="text" id="nombreReg" placeholder="Nombre completo">
+                    <input type="text" id="dniReg" placeholder="DNI">
+                    <input type="text" id="edadReg" placeholder="Edad">
+                    <input type="email" id="mailReg" placeholder="Correo electrónico" required>
+                    <input type="email" id="cmailReg" placeholder="Confirmar correo electrónico" required>
+                    <input type="password" id="passReg" placeholder="Contraseña">
+                    <input type="password" id="cpassReg" placeholder="Confirmar contraseña">
+                    <button id="sendReg">Regístrarse</button>
+                    <p class="errores" id="mailErroneo">Mails no coinciden</p>
+                    <p class="errores" id="passErronea">Contraseñas no coinciden</p>
+                    <p class="errores" id="numerosError">Ingresar solo números en edad y DNI</p>
+                    <p class="errores" id="datosVacios">Por favor llenar todos los campos</p>
+                    <p class="errores" id="numerosError">Ingresar solo números en DNI y Edad</p>
+                    <p class="registro-exitoso" id="registroExitoso">Registro exitoso!</p>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script src="../js/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script> new WOW().init(); </script>
+</body>
+</html>

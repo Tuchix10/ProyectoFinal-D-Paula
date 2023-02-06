@@ -1,0 +1,163 @@
+.body-login {
+    background-image: $bgimg;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.principal-login {
+    width: 100%;
+    padding: 20px;
+    margin: auto;
+    margin-top: 150px;
+}
+
+.contenedor-general {
+    width: 100%;
+    max-width: 825px;
+    margin: auto;
+    position: relative;
+}
+
+.contenedor-back {
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: rgba(0, 128, 255, 0.5);
+    div {
+    margin: 100px 40px;
+    color: white;
+    transition: all 500ms;
+        p {
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: 30px;
+            font-size: 16px;
+            font-weight: 300;
+        }
+        button {
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: 30px;
+            padding: 10px 40px;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            font-size: 14px;
+            background: transparent;
+            font-weight: 600;
+            cursor: pointer;
+            color: white;
+            outline: none;
+            transition: all 300ms;
+        }
+        button:hover{
+            background: #fff;
+            color: #46A2FD;
+        }
+        h3 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 400;
+            font-size: 26px;
+        }
+    }
+}
+
+.contenedor-forms {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+    top: -185px;
+    left: 10px;
+    transition: left 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+    form {
+        width: 100%;
+        background: white;
+        position: absolute;
+        border-radius: 20px;
+        h2 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #46A2FD;
+        }
+        input {
+            font-family: Arial, Helvetica, sans-serif;
+            width: 100%;
+            margin-top: 20px;
+            padding: 10px;
+            border: none;
+            background: #F2F2F2;
+            font-size: 16px;
+            outline: none;
+        }
+        button {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 10px 40px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            background: #262626;
+            font-weight: 600;
+            cursor: pointer;
+            color: white;
+            outline: none;
+        }
+        p {
+            color: #fff;
+            text-align: center;
+            margin-top: 10px;
+        }
+    }
+}
+
+.form-login{
+    padding: 80px 20px;
+    opacity: 1;
+    display: block;
+}
+.form-registro{
+    padding: 40px 20px;
+    display: none;
+}
+
+.errores {
+    display: none;
+    background-color: #a00000;
+}
+
+.registro-exitoso {
+    display: none;
+    background-color: #004e04;
+}
+
+@media screen and (max-width: 850px) {
+    .body-login {
+        overflow: auto;
+    }
+    .principal-login {
+        margin-top: 50px;
+    }
+    .contenedor-back {
+        max-width: 350px;
+        height: 300px;
+        flex-direction: column;
+        margin: auto;
+        div {
+            margin: 0px;
+            position: absolute;
+        }
+    }
+    .contenedor-forms {
+        top: -10px;
+        left: -5px;
+        margin: auto;
+        form  {
+            position: relative;
+        }
+    }
+}
