@@ -38,7 +38,7 @@ const backRegister = document.querySelector(".contenedor-back-registro");
 // Funciones del estilo
 
 function anchoPagina() {
-    if (window.innerWidth > 850) {
+    if (window.innerWidth > 916) {
         backRegister.style.display = "block";
         backRegister.style.display = "block";
     } else {
@@ -51,7 +51,7 @@ function anchoPagina() {
 }
 
 function iniciarSesion() {
-    if (window.innerWidth > 850) {
+    if (window.innerWidth > 916) {
         formLogin.style.display = "block";
         contenedorForms.style.left = "10px";
         formRegister.style.display = "none";
@@ -67,7 +67,7 @@ function iniciarSesion() {
 }
 
 function registro() {
-    if (window.innerWidth > 850) {
+    if (window.innerWidth > 916) {
         formRegister.style.display = "block";
         contenedorForms.style.left = "410px";
         formLogin.style.display = "none";

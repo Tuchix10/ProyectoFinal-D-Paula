@@ -3,7 +3,6 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    overflow: hidden;
 }
 
 .principal-login {
@@ -135,7 +134,7 @@
     background-color: #004e04;
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 916px) {
     .body-login {
         overflow: auto;
     }

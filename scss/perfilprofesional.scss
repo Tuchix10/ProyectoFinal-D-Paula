@@ -98,7 +98,8 @@ td{
 @media screen and (min-width: 320px) and (max-width: 768px) {
     .container-perfil-pro {
         margin: 0px;
-        @include flexcolumnas;
+        display: flex;
+        flex-direction: column;
     }
     .container-datos-pro {
         margin: 10px 10px 0px 10px;

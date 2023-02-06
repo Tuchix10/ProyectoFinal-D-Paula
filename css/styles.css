@@ -48,6 +48,10 @@
   box-sizing: border-box;
 }
 
+html {
+  height: fit-content;
+}
+
 body {
   width: 100%;
   min-height: 100vh;
@@ -416,7 +420,6 @@ footer {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  overflow: hidden;
 }
 
 .principal-login {
@@ -549,7 +552,7 @@ footer {
   background-color: #004e04;
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 916px) {
   .body-login {
     overflow: auto;
   }
