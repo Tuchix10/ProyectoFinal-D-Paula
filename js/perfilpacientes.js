@@ -33,6 +33,8 @@ function buscarUsuarioPerfil(perfiles) {
         return true
     }
     alert(`Se produjo un ingreso erroneo porfavor volver a intentar`);
+    console.log(perfiles.dni)
+    console.log(cookie)
     return false
 }
 
