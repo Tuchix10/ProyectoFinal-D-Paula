@@ -14,15 +14,6 @@ const numerosError = document.getElementById("numerosError")
 const dniErroneo = document.getElementById("dniErroneo")
 const usuarioNoEncontrado = document.getElementById("usuarioNoEncontrado")
 
-// Prevent Defaults
-
-document.getElementById("sendReg").addEventListener("click", function(event) {
-    event.preventDefault()
-});
-document.getElementById("sendLog").addEventListener("click", function(event) {
-    event.preventDefault()
-});
-
 // Estilo
 
 document.getElementById("goLog").addEventListener("click", iniciarSesion);
@@ -217,7 +208,6 @@ sendLog.addEventListener("click" , function () {
         console.log("Ingreso Correcto")
         console.log(resultadoFind)
         document.cookie = "dniIngreso=" + dniLog;
-        console.log(document.cookie)
         location.href = "perfilpacientes.html";
         return
     }
