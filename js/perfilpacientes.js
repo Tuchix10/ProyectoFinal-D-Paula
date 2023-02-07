@@ -2,8 +2,8 @@
 
 let perfiles = JSON.parse(localStorage.getItem("usuarios"));
 let perfilObjeto = JSON.parse(localStorage.getItem("perfilActualizado"));
-let perfilActual = validarStorage();
 let perfilUsuarioActual = perfiles.find(buscarUsuarioPerfil);
+let perfilActual = validarStorage();
 
 // Cookie
 
@@ -83,8 +83,6 @@ function habilitarEdicion () {
     botonEdit.style.display = "none";
     divBotonGuardar.style.display = "block";
 }
-
-// TEST
 
 function deshabilitarEdicion () {
     guardarDatos ();
