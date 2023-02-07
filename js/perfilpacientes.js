@@ -1,9 +1,9 @@
 // General
 
-let perfilUsuarioActual = perfiles.find(buscarUsuarioPerfil);
 let perfiles = JSON.parse(localStorage.getItem("usuarios"));
 let perfilObjeto = JSON.parse(localStorage.getItem("perfilActualizado"));
 let perfilActual = validarStorage();
+let perfilUsuarioActual = perfiles.find(buscarUsuarioPerfil);
 
 // Cookie
 
