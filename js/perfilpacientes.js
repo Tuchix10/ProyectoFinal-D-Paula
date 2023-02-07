@@ -12,7 +12,7 @@ const botonEdit = document.getElementById("botonEdit")
 let nombrePerfil = document.getElementById("namePerfil");
 let editNombrePerfil = document.getElementById("editNamePerfil");
 let edadPerfil = document.getElementById("edadPerfil");
-let dniPerfil = document.getElementById("dniPerfil").value;
+let dniPerfil = document.getElementById("dniPerfil");
 let fechaPerfil = document.getElementById("fechaPerfil");
 let editFechaPerfil = document.getElementById("editFechaPerfil");
 let telefonoPerfil = document.getElementById("telefonoPerfil");
@@ -94,7 +94,7 @@ function guardarDatos () {
     let valorNuevoMail = editMailPerfil.value;
     let valorNuevaOs = editObraSocial.value;
     perfiles.map(function(usuarios) {
-        if(usuarios.dni === dniPerfil){
+        if(usuarios.dni === dniPerfil.value){
             usuarios.nombre = valorNuevoNombre;
             usuarios.fecha = valorNuevaFecha;
             usuarios.tel = valorNuevoTel;
