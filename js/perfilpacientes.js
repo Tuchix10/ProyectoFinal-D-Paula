@@ -38,7 +38,7 @@ function buscarUsuarioPerfil(perfiles) {
 
 let perfilUsuarioActual = perfiles.find(buscarUsuarioPerfil);
 
-function validarStorage() {
+function validarStorage(perfilUsuarioActual) {
     if (perfilObjeto != null) {
         return JSON.parse(localStorage.getItem("perfilActualizado"))
     }
