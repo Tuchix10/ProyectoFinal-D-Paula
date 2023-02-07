@@ -84,6 +84,8 @@ function habilitarEdicion () {
     divBotonGuardar.style.display = "block";
 }
 
+// TEST
+
 function deshabilitarEdicion () {
     guardarDatos ();
     cambiarDatos ();
