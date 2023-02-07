@@ -1,5 +1,6 @@
 // General
 
+let perfilUsuarioActual = perfiles.find(buscarUsuarioPerfil);
 let perfiles = JSON.parse(localStorage.getItem("usuarios"));
 let perfilObjeto = JSON.parse(localStorage.getItem("perfilActualizado"));
 let perfilActual = validarStorage();
@@ -36,9 +37,7 @@ function buscarUsuarioPerfil(perfiles) {
     return false
 }
 
-let perfilUsuarioActual = perfiles.find(buscarUsuarioPerfil);
-
-function validarStorage(perfilUsuarioActual) {
+function validarStorage() {
     if (perfilObjeto != null) {
         return JSON.parse(localStorage.getItem("perfilActualizado"))
     }
