@@ -32,9 +32,6 @@ function buscarUsuarioPerfil(perfiles) {
     if((perfiles.dni === cookie)) {
         return true
     }
-    alert(`Se produjo un ingreso erroneo porfavor volver a intentar`);
-    console.log(perfiles.dni)
-    console.log(cookie)
     return false
 }
 
@@ -90,23 +87,11 @@ function deshabilitarEdicion () {
 // Editar datos
 
 function guardarDatos () {
-    let valorNuevoNombre = editNombrePerfil.value;
-    let valorNuevaFecha = editFechaPerfil.value;
-    let valorNuevoTel = editTelefono.value;
-    let valorNuevoMail = editMailPerfil.value;
-    let valorNuevaOs = editObraSocial.value;
-    perfiles.map(function(usuarios) {
-        if(usuarios.dni === dniPerfil.value){
-            usuarios.nombre = valorNuevoNombre;
-            usuarios.fecha = valorNuevaFecha;
-            usuarios.tel = valorNuevoTel;
-            usuarios.mail = valorNuevoMail;
-            usuarios.os = valorNuevaOs;
-            console.log(perfiles);
-            localStorage.setItem( "usuarios" , JSON.stringify(perfiles));
-        }
-        return usuarios;
-    });
+    perfilUsuarioActual.nombre = editNombrePerfil.value;
+    perfilUsuarioActual.fecha = editFechaPerfil.value;
+    perfilUsuarioActual.tel = editTelefono.value;
+    perfilUsuarioActual.mail = editMailPerfil.value;
+    perfilUsuarioActual.os = editObraSocial.value;
 }
 
 botonEdit.addEventListener("click", habilitarEdicion) 
