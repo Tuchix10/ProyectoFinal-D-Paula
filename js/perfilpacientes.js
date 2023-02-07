@@ -12,7 +12,7 @@ const botonEdit = document.getElementById("botonEdit")
 let nombrePerfil = document.getElementById("namePerfil");
 let editNombrePerfil = document.getElementById("editNamePerfil");
 let edadPerfil = document.getElementById("edadPerfil");
-let dniPerfil = document.getElementById("dniPerfil");
+let dniPerfil = document.getElementById("dniPerfil").value;
 let fechaPerfil = document.getElementById("fechaPerfil");
 let editFechaPerfil = document.getElementById("editFechaPerfil");
 let telefonoPerfil = document.getElementById("telefonoPerfil");
@@ -55,23 +55,23 @@ ingresoDatosDefault(perfilUsuarioActual)
 // Edición.
 
 function habilitarEdicion () {
-    nombrePerfil.style.display = "none"
+    nombrePerfil.style.display = "none";
     editNombrePerfil.style.display = "block";
-    fechaPerfil.style.display = "none"
+    fechaPerfil.style.display = "none";
     editFechaPerfil.style.display = "block";
-    telefonoPerfil.style.display = "none"
+    telefonoPerfil.style.display = "none";
     editTelefono.style.display = "block";
-    osPerfil.style.display = "none"
+    osPerfil.style.display = "none";
     editObraSocial.style.display = "block";
-    emailPerfil.style.display = "none"
+    emailPerfil.style.display = "none";
     editMailPerfil.style.display = "block";
-    botonEdit.style.display = "none"
+    botonEdit.style.display = "none";
     divBotonGuardar.style.display = "block";
 }
 
 function deshabilitarEdicion () {
-    guardarDatos ()
-    nombrePerfil.style.display = "block"
+    guardarDatos ();
+    nombrePerfil.style.display = "block";
     editNombrePerfil.style.display = "none";
     fechaPerfil.style.display = "block"
     editFechaPerfil.style.display = "none";
@@ -94,14 +94,15 @@ function guardarDatos () {
     let valorNuevoMail = editMailPerfil.value;
     let valorNuevaOs = editObraSocial.value;
     perfiles.map(function(usuarios) {
-        if(usuarios.dni === dniPerfil.value){
+        if(usuarios.dni === dniPerfil){
             usuarios.nombre = valorNuevoNombre;
             usuarios.fecha = valorNuevaFecha;
             usuarios.tel = valorNuevoTel;
             usuarios.mail = valorNuevoMail;
             usuarios.os = valorNuevaOs;
+            console.log(perfiles);
+            localStorage.setItem( "usuarios" , JSON.stringify(perfiles));
         }
-        localStorage.setItem( "usuarios" , JSON.stringify(perfiles));
         return usuarios;
     });
 }
