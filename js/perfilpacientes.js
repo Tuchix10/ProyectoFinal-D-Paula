@@ -1,43 +1,16 @@
 // General
 
-almacenamiento = validarBaseDeDatos();
-
-function validarBaseDeDatos() {
-    if (localStorage.length != 0) {
-        return JSON.parse(localStorage.getItem("usuario"))
-    }
-    return [];
-}
-
-class Usuario {
-    constructor (valorNuevoNombre , dni , edad , valorNuevaFecha , valorNuevoTel , valorNuevoMail , valorNuevaOs , medico , pass) {
-        this.nombre = valorNuevoNombre;
-        this.dni = dni;
-        this.edad = edad;
-        this.fecha = valorNuevaFecha;
-        this.tel = valorNuevoTel;
-        this.mail = valorNuevoMail;
-        this.os = valorNuevaOs;
-        this.medico = medico;
-        this.pass = pass;
-    }
-}
+perfiles = JSON.parse(localStorage.getItem("usuario"));
 
 // Cookie
 
-let cookieA = document.cookie;
-let cookieB = cookieA.slice(6);
-let cookieObjeto = JSON.parse(cookieB);
+let cookie = document.cookie.slice(11);
 
 // Definición de Variables
 
-const dni = cookieObjeto.dni;
-const edad = cookieObjeto.edad;
-let medico = cookieObjeto.medico;
-const pass = cookieObjeto.pass;
 const botonEdit = document.getElementById("botonEdit")
-let namePerfil = document.getElementById("namePerfil");
-let editNamePerfil = document.getElementById("editNamePerfil");
+let nombrePerfil = document.getElementById("namePerfil");
+let editNombrePerfil = document.getElementById("editNamePerfil");
 let edadPerfil = document.getElementById("edadPerfil");
 let dniPerfil = document.getElementById("dniPerfil");
 let fechaPerfil = document.getElementById("fechaPerfil");
@@ -54,45 +27,36 @@ let divBotonGuardar = document.getElementById("botonEditGuardar")
 
 // Ingreso de datos default
 
-function chequearAlmacenamiento () {
-    if (almacenamiento[0] != undefined) {
+
+function buscarUsuarioPerfil(perfiles) {
+    if((perfiles.dni === cookie)) {
         return true
     }
+    alert(`Se produjo un ingreso erroneo porfavor volver a intentar`);
     return false
 }
 
-function ingresoNuevoUsuario () {
-    if (chequearAlmacenamiento()) {
-        if ((almacenamiento[0].dni) === (cookieObjeto.dni)) {
-            namePerfil.innerText = almacenamiento[0].nombre.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase());
-            edadPerfil.innerText = cookieObjeto.edad;
-            dniPerfil.innerText = cookieObjeto.dni;
-            emailPerfil.innerText = almacenamiento[0].mail;
-            fechaPerfil.innerText = almacenamiento[0].fecha;
-            telefonoPerfil.innerText = almacenamiento[0].tel;
-            osPerfil.innerText = almacenamiento[0].os;
-            mcPerfil.innerText = almacenamiento[0].medico;
-            return
-        }
-    }
-    namePerfil.innerText = cookieObjeto.nombre.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase());
-    edadPerfil.innerText = cookieObjeto.edad;
-    dniPerfil.innerText = cookieObjeto.dni;
-    emailPerfil.innerText = cookieObjeto.mail;
-    fechaPerfil.innerText = cookieObjeto.fecha;
-    telefonoPerfil.innerText = cookieObjeto.tel;
-    osPerfil.innerText = cookieObjeto.os;
-    mcPerfil.innerText = cookieObjeto.medico;
-    return
+let perfilUsuarioActual = perfiles.find(buscarUsuarioPerfil);
+
+function ingresoDatosDefault (perfilUsuarioActual) {
+    nombrePerfil.innerText = perfilUsuarioActual.nombre.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase());
+    edadPerfil.innerText = perfilUsuarioActual.edad;
+    dniPerfil.innerText = perfilUsuarioActual.dni;
+    emailPerfil.innerText = perfilUsuarioActual.mail;
+    fechaPerfil.innerText = perfilUsuarioActual.fecha;
+    telefonoPerfil.innerText = perfilUsuarioActual.tel;
+    osPerfil.innerText = perfilUsuarioActual.os;
+    mcPerfil.innerText = perfilUsuarioActual.medico;
 }
 
-ingresoNuevoUsuario()
+ingresoDatosDefault(perfilUsuarioActual)
+
 
 // Edición.
 
 function habilitarEdicion () {
-    namePerfil.style.display = "none"
-    editNamePerfil.style.display = "block";
+    nombrePerfil.style.display = "none"
+    editNombrePerfil.style.display = "block";
     fechaPerfil.style.display = "none"
     editFechaPerfil.style.display = "block";
     telefonoPerfil.style.display = "none"
@@ -107,8 +71,8 @@ function habilitarEdicion () {
 
 function deshabilitarEdicion () {
     guardarDatos ()
-    namePerfil.style.display = "block"
-    editNamePerfil.style.display = "none";
+    nombrePerfil.style.display = "block"
+    editNombrePerfil.style.display = "none";
     fechaPerfil.style.display = "block"
     editFechaPerfil.style.display = "none";
     telefonoPerfil.style.display = "block"
@@ -121,29 +85,27 @@ function deshabilitarEdicion () {
     divBotonGuardar.style.display = "none";
 }
 
+// Editar datos
+
 function guardarDatos () {
-    almacenamiento = [];
-    let valorNuevoNombre = editNamePerfil.value;
+    let valorNuevoNombre = editNombrePerfil.value;
     let valorNuevaFecha = editFechaPerfil.value;
     let valorNuevoTel = editTelefono.value;
     let valorNuevoMail = editMailPerfil.value;
     let valorNuevaOs = editObraSocial.value;
-    let usuarioEditado = new Usuario ( valorNuevoNombre , cookieObjeto.dni , cookieObjeto.edad , valorNuevaFecha , valorNuevoTel , valorNuevoMail , valorNuevaOs , cookieObjeto.medico , cookieObjeto.pass );
-    almacenamiento.push(usuarioEditado)
-    localStorage.setItem( "usuario" , JSON.stringify(almacenamiento));
-    cambiarDatos(usuarioEditado)
-}
-
-function cambiarDatos (usuarioEditado) {
-    namePerfil.innerText = usuarioEditado.nombre.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase());
-    edadPerfil.innerText = usuarioEditado.edad;
-    dniPerfil.innerText = usuarioEditado.dni;
-    emailPerfil.innerText = usuarioEditado.mail;
-    fechaPerfil.innerText = usuarioEditado.fecha;
-    telefonoPerfil.innerText = usuarioEditado.tel;
-    osPerfil.innerText = usuarioEditado.os;
-    mcPerfil.innerText = usuarioEditado.medico;
+    perfiles.map(function(usuario) {
+        if(usuario.dni === dniPerfil.value){
+            this.nombre = valorNuevoNombre;
+            this.fecha = valorNuevaFecha;
+            this.tel = valorNuevoTel;
+            this.mail = valorNuevoMail;
+            this.os = valorNuevaOs;
+        }
+        return usuario;
+    });
+    localStorage.setItem( "usuario" , JSON.stringify(perfiles));
 }
 
 botonEdit.addEventListener("click", habilitarEdicion) 
 saveEdit.addEventListener("click" , deshabilitarEdicion) 
+

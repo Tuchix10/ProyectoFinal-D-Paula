@@ -212,11 +212,12 @@ sendReg.addEventListener("click" , function () {
 
 sendLog.addEventListener("click" , function () {
     let resultadoFind = usuarios.find(buscarUsuario);
-    document.cookie = "datos=" + JSON.stringify(resultadoFind);
     const dniLog = document.getElementById("dniLog").value;
     if ((validarDniLog(dniLog)) && (resultadoFind != undefined)) {
         console.log("Ingreso Correcto")
         console.log(resultadoFind)
+        document.cookie = "dniIngreso=" + dniLog;
+        console.log(document.cookie)
         location.href = "perfilpacientes.html";
         return
     }
