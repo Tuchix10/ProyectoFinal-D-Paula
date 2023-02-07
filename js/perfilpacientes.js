@@ -95,15 +95,15 @@ function guardarDatos () {
     let valorNuevaOs = editObraSocial.value;
     perfiles.map(function(usuarios) {
         if(usuarios.dni === dniPerfil.value){
-            this.nombre = valorNuevoNombre;
-            this.fecha = valorNuevaFecha;
-            this.tel = valorNuevoTel;
-            this.mail = valorNuevoMail;
-            this.os = valorNuevaOs;
+            usuarios.nombre = valorNuevoNombre;
+            usuarios.fecha = valorNuevaFecha;
+            usuarios.tel = valorNuevoTel;
+            usuarios.mail = valorNuevoMail;
+            usuarios.os = valorNuevaOs;
         }
+        localStorage.setItem( "usuarios" , JSON.stringify(perfiles));
         return usuarios;
     });
-    localStorage.setItem( "usuarios" , JSON.stringify(perfiles));
 }
 
 botonEdit.addEventListener("click", habilitarEdicion) 
