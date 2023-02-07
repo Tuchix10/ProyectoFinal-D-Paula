@@ -93,17 +93,17 @@ function guardarDatos () {
     let valorNuevoTel = editTelefono.value;
     let valorNuevoMail = editMailPerfil.value;
     let valorNuevaOs = editObraSocial.value;
-    perfiles.map(function(usuario) {
-        if(usuario.dni === dniPerfil.value){
+    perfiles.map(function(usuarios) {
+        if(usuarios.dni === dniPerfil.value){
             this.nombre = valorNuevoNombre;
             this.fecha = valorNuevaFecha;
             this.tel = valorNuevoTel;
             this.mail = valorNuevoMail;
             this.os = valorNuevaOs;
         }
-        return usuario;
+        return usuarios;
     });
-    localStorage.setItem( "usuario" , JSON.stringify(perfiles));
+    localStorage.setItem( "usuarios" , JSON.stringify(perfiles));
 }
 
 botonEdit.addEventListener("click", habilitarEdicion) 
