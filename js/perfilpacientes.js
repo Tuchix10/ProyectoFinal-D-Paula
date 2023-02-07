@@ -1,13 +1,10 @@
 // General
 
+let cookie = document.cookie.slice(11);
 let perfiles = JSON.parse(localStorage.getItem("usuarios"));
 let perfilObjeto = JSON.parse(localStorage.getItem("perfilActualizado"));
 let perfilUsuarioActual = perfiles.find(buscarUsuarioPerfil);
 let perfilActual = validarStorage();
-
-// Cookie
-
-let cookie = document.cookie.slice(11);
 
 // Definición de Variables
 
