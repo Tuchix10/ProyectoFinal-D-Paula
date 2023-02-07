@@ -6,6 +6,7 @@ const sendLog = document.getElementById("sendLog");
 const removeAccents = (str) => {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
+
 const datosVacios = document.getElementById("datosVacios");
 const registroExitoso = document.getElementById("registroExitoso")
 const mailErroneo = document.getElementById("mailErroneo")
@@ -13,6 +14,16 @@ const passErronea = document.getElementById("passErronea")
 const numerosError = document.getElementById("numerosError")
 const dniErroneo = document.getElementById("dniErroneo")
 const usuarioNoEncontrado = document.getElementById("usuarioNoEncontrado")
+
+// Prevent Defaults
+
+document.getElementById("sendReg").addEventListener("click", function(event) {
+    event.preventDefault()
+});
+document.getElementById("sendLog").addEventListener("click", function(event) {
+    event.preventDefault()
+});
+
 
 // Estilo
 
