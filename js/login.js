@@ -24,7 +24,6 @@ document.getElementById("sendLog").addEventListener("click", function(event) {
     event.preventDefault()
 });
 
-
 // Estilo
 
 document.getElementById("goLog").addEventListener("click", iniciarSesion);

@@ -1,6 +1,6 @@
 // General
 
-let perfiles = JSON.parse(localStorage.getItem("usuario"));
+let perfiles = JSON.parse(localStorage.getItem("usuarios"));
 
 // Cookie
 
