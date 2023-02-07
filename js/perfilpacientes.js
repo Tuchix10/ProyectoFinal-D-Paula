@@ -1,7 +1,8 @@
 // General
 
 let perfiles = JSON.parse(localStorage.getItem("usuarios"));
-let perfilActual = JSON.parse(localStorage.getItem("perfilActualizado"))
+let perfilObjeto = JSON.parse(localStorage.getItem("perfilActualizado"));
+let perfilActual = validarStorage();
 
 // Cookie
 
@@ -28,13 +29,6 @@ let divBotonGuardar = document.getElementById("botonEditGuardar")
 
 // Ingreso de datos default
 
-function comprobarDefault () {
-    if (perfilActual != undefined) {
-        return true
-    }
-    return false
-}
-
 function buscarUsuarioPerfil(perfiles) {
     if((perfiles.dni === cookie)) {
         return true
@@ -44,8 +38,24 @@ function buscarUsuarioPerfil(perfiles) {
 
 let perfilUsuarioActual = perfiles.find(buscarUsuarioPerfil);
 
-function ingresoDatosDefault (perfilUsuarioActual) {
-    if(comprobarDefault()) {
+function validarStorage() {
+    if (perfilObjeto != null) {
+        return JSON.parse(localStorage.getItem("perfilActualizado"))
+    }
+    return {
+        nombre:perfilUsuarioActual.nombre,
+        dni:perfilUsuarioActual.dni,
+        edad:perfilUsuarioActual.edad,
+        fecha:perfilUsuarioActual.fecha,
+        tel:perfilUsuarioActual.tel,
+        mail:perfilUsuarioActual.mail,
+        os:perfilUsuarioActual.os,
+        medico:perfilUsuarioActual.medico,
+        pass:perfilUsuarioActual.pass,
+    };
+}
+
+function ingresoDatosDefault () {
     nombrePerfil.innerText = perfilActual.nombre.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase());
     edadPerfil.innerText = perfilActual.edad;
     dniPerfil.innerText = perfilActual.dni;
@@ -54,18 +64,9 @@ function ingresoDatosDefault (perfilUsuarioActual) {
     telefonoPerfil.innerText = perfilActual.tel;
     osPerfil.innerText = perfilActual.os;
     mcPerfil.innerText = perfilActual.medico;
-    }
-    nombrePerfil.innerText = perfilUsuarioActual.nombre.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase());
-    edadPerfil.innerText = perfilUsuarioActual.edad;
-    dniPerfil.innerText = perfilUsuarioActual.dni;
-    emailPerfil.innerText = perfilUsuarioActual.mail;
-    fechaPerfil.innerText = perfilUsuarioActual.fecha;
-    telefonoPerfil.innerText = perfilUsuarioActual.tel;
-    osPerfil.innerText = perfilUsuarioActual.os;
-    mcPerfil.innerText = perfilUsuarioActual.medico;
 }
 
-ingresoDatosDefault(perfilUsuarioActual)
+ingresoDatosDefault()
 
 // Edición.
 
@@ -86,7 +87,7 @@ function habilitarEdicion () {
 
 function deshabilitarEdicion () {
     guardarDatos ();
-    cambiarDatos();
+    cambiarDatos ();
     nombrePerfil.style.display = "block";
     editNombrePerfil.style.display = "none";
     fechaPerfil.style.display = "block"
@@ -116,20 +117,13 @@ function cambiarDatos () {
 
 function guardarDatos () {
     localStorage.removeItem("perfilActualizado");
-    if(comprobarDefault()) {
     perfilActual.nombre = editNombrePerfil.value;
     perfilActual.fecha = editFechaPerfil.value;
     perfilActual.tel = editTelefono.value;
     perfilActual.mail = editMailPerfil.value;
     perfilActual.os = editObraSocial.value;
-    localStorage.setItem( "perfilActualizado" , JSON.stringify(perfilUsuarioActual));
-    }
-    perfilUsuarioActual.nombre = editNombrePerfil.value;
-    perfilUsuarioActual.fecha = editFechaPerfil.value;
-    perfilUsuarioActual.tel = editTelefono.value;
-    perfilUsuarioActual.mail = editMailPerfil.value;
-    perfilUsuarioActual.os = editObraSocial.value;
-    localStorage.setItem( "perfilActualizado" , JSON.stringify(perfilUsuarioActual));
+    localStorage.setItem( "perfilActualizado" , JSON.stringify(perfilActual));
+    console.log(perfilActual)
 }
 
 botonEdit.addEventListener("click", habilitarEdicion) 
