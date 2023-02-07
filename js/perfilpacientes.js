@@ -34,6 +34,8 @@ function buscarUsuarioPerfil(perfiles) {
     return false
 }
 
+
+
 function validarStorage() {
     if (perfilObjeto != null) {
         return JSON.parse(localStorage.getItem("perfilActualizado"))
@@ -51,18 +53,38 @@ function validarStorage() {
     };
 }
 
-function ingresoDatosDefault () {
+function validarLog() {
+    if (perfilActual.dni === cookie) {
+        ingresoDatosActualizados();
+        return
+    }
+    ingresoDatosDefault();
+    return
+}
+
+validarLog()
+
+function ingresoDatosActualizados () {
     nombrePerfil.innerText = perfilActual.nombre.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase());
-    edadPerfil.innerText = perfilActual.edad;
-    dniPerfil.innerText = perfilActual.dni;
+    edadPerfil.innerText = perfilUsuarioActual.edad;
+    dniPerfil.innerText = perfilUsuarioActual.dni;
     emailPerfil.innerText = perfilActual.mail;
     fechaPerfil.innerText = perfilActual.fecha;
     telefonoPerfil.innerText = perfilActual.tel;
     osPerfil.innerText = perfilActual.os;
-    mcPerfil.innerText = perfilActual.medico;
+    mcPerfil.innerText = perfilUsuarioActual.medico;
 }
 
-ingresoDatosDefault()
+function ingresoDatosDefault () {
+    nombrePerfil.innerText = perfilUsuarioActual.nombre.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase());
+    edadPerfil.innerText = perfilUsuarioActual.edad;
+    dniPerfil.innerText = perfilUsuarioActual.dni;
+    emailPerfil.innerText = perfilUsuarioActual.mail;
+    fechaPerfil.innerText = perfilUsuarioActual.fecha;
+    telefonoPerfil.innerText = perfilUsuarioActual.tel;
+    osPerfil.innerText = perfilUsuarioActual.os;
+    mcPerfil.innerText = perfilUsuarioActual.medico;
+}
 
 // Edición.
 
@@ -100,13 +122,13 @@ function deshabilitarEdicion () {
 
 function cambiarDatos () {
     nombrePerfil.innerText = perfilActual.nombre.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase());
-    edadPerfil.innerText = perfilActual.edad;
-    dniPerfil.innerText = perfilActual.dni;
+    edadPerfil.innerText = perfilUsuarioActual.edad;
+    dniPerfil.innerText = perfilUsuarioActual.dni;
     emailPerfil.innerText = perfilActual.mail;
     fechaPerfil.innerText = perfilActual.fecha;
     telefonoPerfil.innerText = perfilActual.tel;
     osPerfil.innerText = perfilActual.os;
-    mcPerfil.innerText = perfilActual.medico;
+    mcPerfil.innerText = perfilUsuarioActual.medico;
 }
 
 // Editar datos
@@ -115,6 +137,7 @@ function guardarDatos () {
     localStorage.removeItem("perfilActualizado");
     perfilActual.nombre = editNombrePerfil.value;
     perfilActual.fecha = editFechaPerfil.value;
+    perfilActual.dni = perfilUsuarioActual.dni;
     perfilActual.tel = editTelefono.value;
     perfilActual.mail = editMailPerfil.value;
     perfilActual.os = editObraSocial.value;
