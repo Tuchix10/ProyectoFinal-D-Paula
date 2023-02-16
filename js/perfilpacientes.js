@@ -197,6 +197,10 @@ fetch("https://newsapi.org/v2/top-headlines?country=ar&category=science&apiKey=0
     .then (response => response.json())
     .then (data =>{
         let arrDeNoticias = data.articles;
+        console.log(typeof(data))
+        console.log(data.articles)
+        console.log(data)
+        console.log(arrDeNoticias)
         arrDeNoticias.length = 5
         imagenNoticias.setAttribute("src" , arrDeNoticias[0].urlToImage)
         linkNoticias.setAttribute("href" , arrDeNoticias[0].url)
