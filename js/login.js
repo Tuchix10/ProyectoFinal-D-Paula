@@ -114,54 +114,95 @@ function validarBaseDeDatos() {
 
 // Validaciones de Registro
 
+// Mails
+
 function validarMails(mailReg , cmailReg) {
     if (mailReg === cmailReg) {
-        mailErroneo.style.display = 'none';
         return true
     }
-    datosVacios.style.display = 'none';
-    mailErroneo.style.display = 'block';
-    passErronea.style.display = 'none';
+    Toast.fire({
+        icon: 'error',
+        title: 'Los E-Mails no coinciden'
+    })
+    return false
+}
+
+// Passwords
+
+function passwordSeisCaracteres (passReg) {
+    if (passReg.length < 6) {
+        Toast.fire({
+        icon: 'error',
+        title: 'La contraseña debe ser mayor a seis caracteres'
+    })
+    return false
+    }
+    return true
+}
+
+function validarIgualdad(passReg , cpassReg) {
+    if (passReg === cpassReg) {
+        return true
+    }
+    Toast.fire({
+        icon: 'error',
+        title: 'Las contraseñas no coinciden'
+    })
     return false
 }
 
 function validarPasswords(passReg , cpassReg) {
-    if (passReg === cpassReg) {
-        passErronea.style.display = 'none';
+    if ((validarIgualdad(passReg , cpassReg)) && (passwordSeisCaracteres(passReg))) {
         return true
     }
-    datosVacios.style.display = 'none';
-    passErronea.style.display = 'block';
-    mailErroneo.style.display = 'none';
     return false
 }
+
+// DNI y Edad
 
 function validarNumeros(dniReg , edadReg) {
     if (!isNaN(dniReg) && (!isNaN(edadReg))) {
         return true
     }
-    numerosError.style.display = 'block';
-    mailErroneo.style.display = 'none';
-    passErronea.style.display = 'none';
-    datosVacios.style.display = 'none';
+    Toast.fire({
+        icon: 'error',
+        title: 'Ingrese solo números en DNI y Edad'
+    })
     return false
 }
 
+// Repetición de usuario
+
+function validarUsuarios(usuarios) {
+    const dniReg = document.getElementById("dniReg").value;
+    if((usuarios.dni === dniReg)) {
+        Toast.fire({
+            icon: 'error',
+            title: 'Usuario ya registrado'
+        })
+        return true;
+    }
+    return false;
+}
+
+// Inputs
 
 function validarIngresos(nameReg , dniReg , edadReg , mailReg , cmailReg , passReg , cpassReg) {
     if (nameReg == "" || dniReg == "" || edadReg == "" || mailReg == "" || cmailReg == "" || passReg == "" || cpassReg == "") {
-        datosVacios.style.display = 'block';
-        passErronea.style.display = 'none';
-        numerosError.style.display = 'none';
-        mailErroneo.style.display = 'none';
+        Toast.fire({
+            icon: 'error',
+            title: 'Llene todos los campos'
+        })
         return false;
     }
-    datosVacios.style.display = 'none';
     return true;
 }
 
+// Validaciones en conjunto
+
 function validaciones(nameReg , dniReg , edadReg , mailReg , cmailReg , passReg , cpassReg) {
-    if ((validarMails(mailReg , cmailReg)) && (validarNumeros(dniReg , edadReg)) && (validarPasswords(passReg , cpassReg)) && (validarIngresos(nameReg , dniReg , edadReg , mailReg , cmailReg , passReg , cpassReg))) {
+    let usuarioEncontrado = usuarios.find(validarUsuarios);
+    if ((validarMails(mailReg , cmailReg)) && (validarNumeros(dniReg , edadReg)) && (validarPasswords(passReg , cpassReg)) && (validarIngresos(nameReg , dniReg , edadReg , mailReg , cmailReg , passReg , cpassReg) && (usuarioEncontrado == undefined))) {
         return true
     }
     return false
@@ -203,10 +244,30 @@ sendReg.addEventListener("click" , function () {
     if (validaciones(nameReg , dniReg , edadReg , mailReg , cmailReg , passReg , cpassReg)) {
         usuarios.push(new Usuario ( nameReg , dniReg , edadReg , mailReg , passReg ));
         localStorage.setItem( "usuarios" , JSON.stringify(usuarios));
-        registroExitoso.style.display = 'block';
-    console.log(usuarios)
-    console.log(localStorage)
+        formRegister.reset();
+        Toast.fire({
+            icon: 'success',
+            title: 'Registro Correcto'
+        })
     }
+})
+
+// SweetAlert
+
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-right',
+    iconColor: 'white',
+    didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+    },
+    customClass: {
+    popup: 'colored-toast'
+    },
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true
 })
 
 // Evento Login
@@ -221,7 +282,8 @@ sendLog.addEventListener("click" , function () {
         location.href = "perfilpacientes.html";
         return
     }
-    usuarioNoEncontrado.style.display = 'block';
-    console.log("Ingreso Incorrecto")
-    console.log(resultadoFind)
+    Toast.fire({
+        icon: 'error',
+        title: 'Usuario no encontrado'
+    })
 })

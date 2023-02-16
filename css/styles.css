@@ -530,6 +530,38 @@ footer {
   margin-top: 10px;
 }
 
+.colored-toast.swal2-icon-success {
+  background-color: #a5dc86 !important;
+}
+
+.colored-toast.swal2-icon-error {
+  background-color: #f27474 !important;
+}
+
+.colored-toast.swal2-icon-warning {
+  background-color: #f8bb86 !important;
+}
+
+.colored-toast.swal2-icon-info {
+  background-color: #3fc3ee !important;
+}
+
+.colored-toast.swal2-icon-question {
+  background-color: #87adbd !important;
+}
+
+.colored-toast .swal2-title {
+  color: white;
+}
+
+.colored-toast .swal2-close {
+  color: white;
+}
+
+.colored-toast .swal2-html-container {
+  color: white;
+}
+
 .form-login {
   padding: 80px 20px;
   opacity: 1;
@@ -542,6 +574,8 @@ footer {
 }
 
 .errores {
+  color: white;
+  text-align: center;
   display: none;
   background-color: #a00000;
 }
@@ -1090,20 +1124,16 @@ footer {
     margin: auto;
   }
 }
-.carousel.slide {
-  width: 65%;
+.carousel-dark {
+  margin-top: 30px;
+  margin-bottom: 37px;
+}
+.carousel-dark img {
   margin: auto;
 }
 
-.carousel-inner {
-  border-radius: 30px;
-  margin-top: 25px;
-}
-
-@media screen and (min-width: 320px) and (max-width: 1070px) {
-  .carousel.slide {
-    width: 90%;
-    height: 100%;
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .carousel-dark {
     margin-bottom: 113px;
     margin-top: 93px;
   }
@@ -1186,7 +1216,7 @@ footer {
 }
 .container-perfil {
   display: grid;
-  grid-template-areas: "datos turno turno estudios estudios" "datos turnos turnos uestudios uestudios";
+  grid-template-areas: "datos turno turno estudios estudios" "datos turnos turnos news news";
   grid-template-columns: 1.3fr 1fr 1fr 1fr 1fr;
   grid-template-rows: auto auto;
   gap: 20px;
@@ -1281,9 +1311,9 @@ footer {
   justify-content: center;
 }
 
-.ultimos-estudios {
+.news {
   padding: 0px 25px 0px 25px;
-  grid-area: uestudios;
+  grid-area: news;
 }
 
 .img-edit {
@@ -1363,22 +1393,13 @@ footer {
   grid-area: mc;
 }
 
-.tab {
+.carousel.slide {
+  margin-top: 30px;
+  margin-bottom: 37px;
+}
+.carousel.slide img {
   width: 100%;
-  border-collapse: collapse;
-  text-align: center;
-  font-family: "arial";
-  background-color: #262626;
-  border-radius: 10px;
-}
-
-thead {
-  font-weight: bold;
-}
-
-td {
-  border-radius: 10px;
-  color: white;
+  height: 250px;
 }
 
 @media screen and (min-width: 320px) and (max-width: 768px) {
@@ -1395,7 +1416,7 @@ td {
   .estudios-img {
     padding: 0px;
   }
-  .ultimos-estudios {
+  .news {
     display: none;
   }
   .calendario {
@@ -1433,7 +1454,7 @@ td {
   .calendario {
     padding: 0px;
   }
-  .ultimos-estudios {
+  .news {
     padding: 0px;
   }
 }

@@ -1,15 +1,12 @@
-.carousel.slide {
-    width: 65%;
-    margin: auto;
+.carousel-dark {
+    margin-top: 30px;
+    margin-bottom: 37px;
+    img {
+        margin: auto;
+    }
 }
-.carousel-inner {
-    border-radius: $borde;
-    margin-top: 25px;
-}
-@media screen and (min-width: $Pantallachica) and (max-width: $Pantallagrande) {
-    .carousel.slide {
-        width: 90%;
-        height: 100%;
+@media screen and (min-width: $Pantallachica) and (max-width: $Pantallamediana) {
+    .carousel-dark {
         margin-bottom: 113px;
         margin-top: 93px;
     }
